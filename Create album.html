@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create album</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+            color: black;
+            padding-top: 90px;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 20px;
+            background-color: rgba(242, 28, 28, 0.159);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .left-nav {
+            font-weight: bold;
+            font-size: 24px;
+            color: rgb(141, 3, 3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            background-color: rgb(178, 0, 0);
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 16px;
+            color: white;
+            display: inline-block;
+        }
+
+        .logout {
+            background: rgb(144, 14, 0);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            background: #eeeeee6e;
+            padding: 15px;
+        }
+
+        .section-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .logout {
+                margin-top: 10px;
+            }
+
+            .section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted class="video-bg">
+        <source src="./couple flying in balloon.mp4" type="video/mp4">
+    </video>
+
+    <header>
+        <nav>
+            <div class="left-nav">Create album</div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Album.html">Album</a></li>
+                <li><a href="Create album.html">Create Album</a></li>
+            </ul>
+            <button onclick="logout()" class="logout">Logout</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="upload-container">
+            <div class="upload-box">
+                <h2>Create Memories</h2>
+                <button class="upload" type="submit" onclick="changeF"><p id="yearDisplay">Current year: </p></button>
+            </div>
+        </div>
+    
+        <div id="message"></div>
+    
+        
+    </main>
+
+    <script>
+        function changeF() {
+            const currentYear = new Date().getFullYear();
+            const currentMonth = new Date().getMonth() + 1;
+
+            document.getElementById('yearDisplay').innerText = `Current Year: ${currentYear}`;
+
+            const folderName = `Folder_${currentYear}`;
+            const subFolderName = `Month_${currentMonth}`;
+            console.log(`Creating folder: ${folderName}`);
+            console.log(`Creating sub-folder inside ${folderName}: ${subFolderName}`);
+        }
+    </script>
+
+    
+
+    <script src="logout.js"></script>
+</body>
+</html>

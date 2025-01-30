@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my website</title>
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: 0.5s ease-in-out;
+        }
+
+        .login {
+            position: relative;
+            width: 350px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login h2 {
+            margin-bottom: 20px;
+            color: white;
+            
+
+        }
+
+        .login input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: bold;
+        }
+
+        .login input::placeholder {
+            /* color: rgb(141, 3, 3); */
+            color: white;
+        }
+
+        .login button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: rgb(144, 14, 0);
+            position: relative;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .login button:after {
+            content: "";
+            background:  rgba(255, 255, 255, 0.3);;
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px !important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        .login button:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s
+        }
+
+
+        .photo-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .photo-container img{
+            object-fit: contain ;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+    </style> -->
+
+<style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                max-width: 800px;
+            }
+        }
+
+        .login {
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .login h2 {
+            margin-bottom: 20px;
+        }
+
+        .login input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: bold;
+        }
+
+        .login input::placeholder {
+            color: white;
+        }
+
+        .login button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: rgb(144, 14, 0);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .login button:hover {
+            background: rgb(180, 20, 0);
+        }
+
+        .photo-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .photo-container img.active {
+            opacity: 1;
+        }
+</style>
+
+</head>
+
+
+
+<body>
+    <video autoplay loop muted play-inline class="video-bg">
+        <source src="./valentine's day.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="login" id="login">
+            <h2>Welcome to our memories</h2>
+            <h2 style="font-size: 16px; text-align: center;">Enter the date of aniversary</h2>
+            <input type="date" placeholder="" id="Dateaniversary">
+            <button onclick="login()">Enter</button>
+        </div>
+
+        <div class="photo-container">
+            <img class="slide" src="./slide show photos/1.jpg" alt="slide 1">
+            <img class="slide" src="./slide show photos/2.jpg" alt="slide 2">
+            <img class="slide" src="./slide show photos/3.jpg" alt="slide 3">
+            <img class="slide" src="./slide show photos/4.jpg" alt="slide 4">
+            <img class="slide" src="./slide show photos/5.jpg" alt="slide 5">
+        </div>
+
+    </div>
+
+    
+    <script src="app.js"></script>
+    <script src="slideshow.js"></script>
+</body>
+
+</html>
